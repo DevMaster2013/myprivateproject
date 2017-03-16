@@ -10,34 +10,43 @@
 #define FEATUREEXTRACTION_API __declspec(dllimport)
 #endif
 
-//
-// The Feature Extraction settings
-//
-struct FeatureExtractionSettings
+#ifdef __cplusplus
+extern "C"
 {
-	bool useGPU;
-	int layersCount;
-	double contrastThreshold;
-	double edgesThreshold;
-	double sigma;
-	bool useASIFT;
-	int tiltsCount;	
-};
+#endif
 
-//
-// The Feature struct
-//
-struct Feature
-{
-	double x;
-	double y;
-	double size;
-	double angle;
-	unsigned char descriptor[256];
-};
+	//
+	// The Feature Extraction settings
+	//
+	struct FeatureExtractionSettings
+	{
+		bool useGPU;
+		int layersCount;
+		double contrastThreshold;
+		double edgesThreshold;
+		double sigma;
+		bool useASIFT;
+		int tiltsCount;
+	};
 
-//
-// Extract the features of the image specified and store it in the output file
-// Using the settings specified
-//
-FEATUREEXTRACTION_API int extractFeatures(const char* imagePath, Feature* features, FeatureExtractionSettings settings);
+	//
+	// The Feature struct
+	//
+	struct Feature
+	{
+		double x;
+		double y;
+		double size;
+		double angle;
+		unsigned char descriptor[256];
+	};
+
+	//
+	// Extract the features of the image specified and store it in the output file
+	// Using the settings specified
+	//
+	FEATUREEXTRACTION_API int extractFeatures(const char* imagePath, Feature* features, FeatureExtractionSettings settings);
+
+#ifdef __cplusplus
+}
+#endif

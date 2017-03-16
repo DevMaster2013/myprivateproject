@@ -11,29 +11,39 @@
 #endif
 
 #include "..\FeatureExtraction\FeatureExtraction.h"
-//
-// The matching settings
-//
-struct MatchingSettings
-{
-	bool useGPU;
-	int maxMacthesCount;
-	double maxMatchesDistance;
-	bool useSequentialMatching;
-	int matchingFrames;
-	bool useOrsa;
-	int orsaIterations;	
-};
 
-// 
-// The match struct
-//
-struct Match
+#ifdef __cplusplus
+extern "C"
 {
-	int trainIndex;
-	int queryIndex;
-};
+#endif
 
-//
-// Match two image features and store the output in matches list
-MATCHING_API int matchFeatures(const char* trainImagePath, Feature* trainImageFeatures, const char* queryImagePath, Feature* queryImageFeatures, Match* matchList, MatchingSettings settings);
+	//
+	// The matching settings
+	//
+	struct MatchingSettings
+	{
+		bool useGPU;
+		int maxMacthesCount;
+		double maxMatchesDistance;
+		bool useSequentialMatching;
+		int matchingFrames;
+		bool useOrsa;
+		int orsaIterations;
+	};
+
+	// 
+	// The match struct
+	//
+	struct Match
+	{
+		int trainIndex;
+		int queryIndex;
+	};
+
+	//
+	// Match two image features and store the output in matches list
+	MATCHING_API int matchFeatures(const char* trainImagePath, Feature* trainImageFeatures, const char* queryImagePath, Feature* queryImageFeatures, Match* matchList, MatchingSettings settings);
+
+#ifdef __cplusplus
+}
+#endif

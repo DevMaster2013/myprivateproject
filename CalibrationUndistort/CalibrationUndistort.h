@@ -10,18 +10,27 @@
 #define CALIBRATIONUNDISTORT_API __declspec(dllimport)
 #endif
 
-// 
-// The camera struct
-struct Camera
+#ifdef __cplusplus
+extern "C"
 {
-	double cameraInterinsics[9];
-	double distortionParams[5];
-	double cameraRotation[9];
-	double cameraTranslation[3];
-};
+#endif
 
-//
-// Undistort the image with the interinsic data and distortion parameters
-// Outputs the undistorted image in the specified path
-//
-CALIBRATIONUNDISTORT_API int undistortImage(const char* imagePath, const char* outputImage, Camera cameraSettings);
+	// 
+	// The camera struct
+	struct Camera
+	{
+		double cameraInterinsics[9];
+		double distortionParams[5];
+		double cameraRotation[9];
+		double cameraTranslation[3];
+	};
+
+	//
+	// Undistort the image with the interinsic data and distortion parameters
+	// Outputs the undistorted image in the specified path
+	//
+	CALIBRATIONUNDISTORT_API int undistortImage(const char* imagePath, const char* outputImage, Camera cameraSettings);
+
+#ifdef __cplusplus
+}
+#endif

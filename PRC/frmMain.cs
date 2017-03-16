@@ -16,6 +16,13 @@ namespace PRC
 
         public frmMain()
         {
+            PRC.Camera myCamera = new Camera();
+            myCamera.cameraInterinsics = new double[9];
+            myCamera.distortionParams = new double[5];
+            myCamera.cameraInterinsics[3] = 90;
+            myCamera.distortionParams[4] = 50;
+            int result = PRCDLLInterface.undistortImage("My Game Input Path", "My Output Path", myCamera);
+
             InitializeComponent();
         }
 
