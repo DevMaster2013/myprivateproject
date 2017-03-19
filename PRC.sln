@@ -8,6 +8,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CalibrationUndistort", "CalibrationUndistort\CalibrationUndistort.vcxproj", "{ED5E4AB4-663B-4576-9047-BBB1534EDB45}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLLs", "DLLs", "{7C936248-2C98-42E9-BB4D-3AFABED7FF0E}"
+	ProjectSection(SolutionItems) = preProject
+		PRCDefinitoins.h = PRCDefinitoins.h
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FeatureExtraction", "FeatureExtraction\FeatureExtraction.vcxproj", "{7C931FCE-D952-4E66-8066-42D9ACE4F362}"
 EndProject

@@ -15,21 +15,13 @@ extern "C"
 {
 #endif
 
-	// 
-	// The camera struct
-	struct Camera
-	{
-		double cameraInterinsics[9];
-		double distortionParams[5];
-		double cameraRotation[9];
-		double cameraTranslation[3];
-	};
+#include "..\PRCDefinitoins.h"
 
 	//
 	// Undistort the image with the interinsic data and distortion parameters
 	// Outputs the undistorted image in the specified path
 	//
-	CALIBRATIONUNDISTORT_API int undistortImage(const char* imagePath, const char* outputImage, Camera cameraSettings);
+	CALIBRATIONUNDISTORT_API Errors undistortImage(const char* imagePath, const char* outputImage, Camera cameraSettings);
 
 #ifdef __cplusplus
 }

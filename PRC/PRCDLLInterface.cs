@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 
 namespace PRC
 {
+    public enum Errors
+    {
+        S_NO_ERROR,
+        E_INVALID_INPUT_IMAGE,
+        E_INVALID_OPERATION
+    }
+
     /// <summary>
     /// The Camera Struct
     /// </summary>
@@ -29,6 +36,6 @@ namespace PRC
     public static class PRCDLLInterface
     {
         [DllImport("CalibrationUndistort.dll", EntryPoint = "undistortImage")]
-        public static extern int undistortImage(string imagePath, string outputImage, Camera cameraSettings);
+        public static extern Errors undistortImage(string imagePath, string outputImage, Camera cameraSettings);
     }
 }

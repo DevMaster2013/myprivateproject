@@ -17,11 +17,10 @@ namespace PRC
         public frmMain()
         {
             PRC.Camera myCamera = new Camera();
-            myCamera.cameraInterinsics = new double[9];
-            myCamera.distortionParams = new double[5];
-            myCamera.cameraInterinsics[3] = 90;
-            myCamera.distortionParams[4] = 50;
-            int result = PRCDLLInterface.undistortImage("My Game Input Path", "My Output Path", myCamera);
+            myCamera.cameraInterinsics = new double[9] { 1838.206226, 0, 1346.244981, 0, 1833.778808, 1075.607974, 0, 0, 1};
+            myCamera.distortionParams = new double[5] { -0.181150, 0.138836, 0.000247, -0.000801, -0.052944 };            
+            Errors result = PRCDLLInterface.undistortImage("E:\\3D Reconstruction Workspace\\Trial pipe images\\New folder\\200_left.jpg",
+                "E:\\3D Reconstruction Workspace\\Trial pipe images\\New folder\\200_left_undistorted.jpg", myCamera);
 
             InitializeComponent();
         }
